@@ -1,0 +1,63 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f5f8;
+}
+
+.editor_area {
+    width: 40%;
+    height: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.8);
+}
+
+.title {
+    margin-top: 3.5%;
+    text-align: center;
+}
+
+.register_form {
+    width: 50%;
+    white-space: nowrap;
+    padding: 20px;
+    margin-left: 25%;
+}
+
+.register_form>button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 5px;
+    background-color: #a3c7e4;
+}
+
+.register_form>button:hover {
+    background-color: #58acf1;
+}
+
+.register_form>input {
+    padding: 3px;
+}
+
+.products_table {
+    width: 70%;
+    padding: 1% 5%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+.products_table>tbody>tr:nth-child(odd) {
+    background-color: #d6dfe0;
+}
+
+.products_table>tbody>tr>td {
+    padding: 5px;
+}
