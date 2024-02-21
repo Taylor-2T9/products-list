@@ -14,6 +14,10 @@
     border-radius: 5px;
     background-color: whitesmoke;
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.8);
+
+    @media(max-width: 900px) {
+        width: 80%;
+    }
 }
 
 .title {
@@ -23,19 +27,29 @@
 
 .register_form {
     width: 50%;
-    white-space: nowrap;
     padding: 20px;
     margin-left: 25%;
+
+    @media(max-width: 900px) {
+        margin-left: 10%;
+    }
 }
 
 .register_form>button {
     cursor: pointer;
+    padding: 5px;
     border: 0;
     border-radius: 0px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    padding: 5px;
     background-color: #a3c7e4;
+
+    @media(max-width: 900px) {
+        border-radius: 3px;
+        width: 80px;
+        margin-top: 4%;
+        margin-left: 38%;
+    }
 }
 
 .register_form>button:hover {
@@ -71,4 +85,33 @@
 .products_table>tbody>tr>td {
     padding: 5px;
     text-align: center;
+}
+
+.products_table>tbody>tr>td>button {
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 2px 5px;
+    border: 1px solid rgb(196, 194, 194);
+}
+
+.products_table>tbody>tr>td>button {
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 3px;
+    padding: 2px 5px;
+    border: 1px solid rgb(196, 194, 194);
+}
+
+.products_table>tbody>tr>td>button>svg {
+    width: 16px;
+    height: 16px;
+}
+
+.products_table>tbody>tr>td>.edit_button:hover {
+    background-color: #f1ee58;
+}
+
+.products_table>tbody>tr>td>.remove_button:hover {
+    background-color: #f15d58;
 }
