@@ -35,8 +35,8 @@ export default function Home() {
           onSubmit={async (ev) => {
             ev.preventDefault()
             if (inputRef.current?.value) {
-              await api.products.post({ name: inputRef.current.value })
               setProducts([...products, { Nome: inputRef.current.value }])
+              await api.products.post({ name: inputRef.current.value })
               inputRef.current.value = ''
             }
           }}
