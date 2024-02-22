@@ -1,11 +1,11 @@
 'use client'
 
+import api from './api'
+import s from './styles.module.css'
+import EditProductModal from '@/app/components/Modal'
 import { useEffect, useRef, useState } from 'react'
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { FaRegEdit } from "react-icons/fa"
-import Modal from '@/app/components/Modal'
-import api from './api'
-import s from './styles.module.css'
 
 export default function Home() {
   const [products, setProducts] = useState<any[]>([])
@@ -92,7 +92,7 @@ export default function Home() {
           </table>
         </div>
       </div>
-      <Modal
+      <EditProductModal
         isOpen={!!editProduct}
         product={editProduct}
         setProduct={setEditProduct}

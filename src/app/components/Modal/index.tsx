@@ -4,7 +4,7 @@ import api from '@/app/api'
 import s from './styles.module.css'
 import { useRef } from 'react'
 
-const Modal = ({
+const EditProductModal = ({
     isOpen,
     product,
     setProduct,
@@ -35,7 +35,7 @@ const Modal = ({
                 close()
             }}
         >
-            <h2 className={s.title}>Editar item</h2>
+            <h3 className={s.title}>Editar item</h3>
             <div className={s.edit_area}>
                 <div className={s.input_area}>
                     <label>Nome</label>
@@ -57,13 +57,18 @@ const Modal = ({
             <div>
                 <button
                     type="button"
+                    className={s.close_button}
                     onClick={() => close()}
                 >
                     Fechar
                 </button>
-                <button>Salvar</button>
+                <button
+                className={s.submit_button}
+                >
+                    Salvar
+                </button>
             </div>
         </form>
     )
 }
-export default Modal
+export default EditProductModal
