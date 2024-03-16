@@ -11,6 +11,7 @@
 .editor_area {
     width: 40%;
     height: 70%;
+    overflow: auto;
     padding: 10px;
     border-radius: 5px;
     background-color: whitesmoke;
@@ -34,7 +35,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    margin-left: 20%;
+    margin-left: 21%;
     padding: 20px;
 
     @media(max-width: 900px) {
@@ -72,6 +73,7 @@
     border: none;
     border-bottom: 2px solid rgb(133, 132, 132)
 }
+
 .register_form>input:focus {
     border-bottom: 2px solid rgb(128, 204, 240)
 }
@@ -130,4 +132,33 @@
 
 .products_table>tbody>tr>td>.remove_button:hover {
     background-color: #f15d58;
+}
+
+.export_area {
+    width: 25%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media(max-width: 950px) {
+        width: 20%;
+    }
+}
+
+.export_area>button {
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+    padding: 7px 5px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid rgb(82, 82, 82);
+    background-color: #182fff91;
+
+    @media(max-width: 950px) {
+        min-width: 125px;
+    }
+}
+.export_area>button:hover {
+    background-color: #58acf1;
 }

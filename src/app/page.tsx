@@ -6,6 +6,7 @@ import EditProductModal from '@/app/components/Modal'
 import { useEffect, useRef, useState } from 'react'
 import { RiDeleteBin6Line } from "react-icons/ri"
 import { FaRegEdit } from "react-icons/fa"
+import { saveAs } from 'file-saver'
 
 export default function Home() {
   const [products, setProducts] = useState<any[]>([])
@@ -18,7 +19,6 @@ export default function Home() {
       try {
         const response = await api.products.get()
         setProducts(response.data)
-        console.log(response.data)
       } catch (error) {
         console.error('Error fetching data:', error)
       }
@@ -35,8 +35,8 @@ export default function Home() {
           onSubmit={async (ev) => {
             ev.preventDefault()
             if (inputRef.current?.value) {
-              setProducts([...products, { Nome: inputRef.current.value }])
-              await api.products.post({ name: inputRef.current.value })
+              setProducts([...products, { Nome: inputRef.current.value, Quantidade: 0 }])
+              await api.products.post({ name: inputRef.current.value, amount: 0 })
               inputRef.current.value = ''
             }
           }}
@@ -91,6 +91,30 @@ export default function Home() {
             </tbody>
           </table>
         </div>
+        <div className={s.export_area}>
+          <button onClick={() => {
+            const csvRows = [] as string[]
+
+            const headers = Object.keys(products[0])
+            headers.join(',')
+            csvRows.push(headers.join(','))
+
+            for (const row of products) {
+              const values = headers.map(header => {
+                const escaped = ('' + row[header]).replace(/"/g, '\\"')
+                return `"${escaped}"`
+              })
+              csvRows.push(values.join(','))
+            }
+
+            const data = csvRows.join('\n')
+
+            const blob = new Blob([data], { type: 'text/csv;charset=utf-8' })
+            saveAs(blob, 'data.csv')
+          }}>
+            Exportar Lista
+          </button>
+        </div>
       </div>
       <EditProductModal
         isOpen={!!editProduct}
@@ -98,6 +122,6 @@ export default function Home() {
         setProduct={setEditProduct}
         setProducts={setProducts}
       />
-    </main>
+    </main >
   )
 }
